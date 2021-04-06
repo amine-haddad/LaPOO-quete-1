@@ -1,58 +1,59 @@
 <?php
 
-// Bicycle.php
 
-class Bicycle
+class Car
 {
-    private string $color;
-
-
+    private int $nbWheels ;
+    
     private int $currentSpeed;
-
+    
+    private string $color;
 
     private int $nbSeats;
 
-    private int $nbWheels;
+    private string $energy;
 
-    public function __construct(string $color, int $nbSeats)
+    private int $energyLevel;
+
+
+
+    public function __construct(string $color, int $nbSeats, string $energy)
 
     {
         $this->color = $color;
-        $this->nbSeats = $nbSeats;
+        $this->nbSeats =$nbSeats;
+        $this->energy = $energy;
+        
     }
 
     public function forward(): string
 
     {
-
-        //$this->currentSpeed = 15;
-
-
+        //$this->currentSpeed = 20;
         return "Go !";
     }
-
 
     public function brake(): string
 
     {
-
         $sentence = "";
 
-        while ($this->currentSpeed > 0) {
-
-            $this->currentSpeed--;
-
-            $sentence .= "Brake !!!";
-        }
+            while ($this->currentSpeed > 0) {
+                $this->currentSpeed--;
+                $sentence .= "Brake !!!";
+            }
 
         $sentence .= "I'm stopped !";
-
         return $sentence;
+    }
+
+    public function start() {
+        echo 'Je demarre :';
     }
 
     public function getCurrentSpeed(): int
     {
-        return $this->currentSpeed;
+        return $this->currentSpeed ;
     }
 
     public function setCurrentSpeed(int $currentSpeed): void
@@ -91,17 +92,22 @@ class Bicycle
         $this->nbSeats = $nbSeats;
     }
 
-    public function getNbWheel(): int
+    public function getEnergy(): string
 
     {
 
-        return $this->nbWheel;
+        return $this->energy;
     }
 
-    public function setNbWheel(int $nbWheels): void
+    public function setEnergy(string $energy): void
 
     {
 
-        $this->nbWheel = $nbWheels;
+        $this->energy = $energy;
+    }
+
+    public function getEnergyLevel(): int
+    {
+        return $this->energyLevel ;
     }
 }
